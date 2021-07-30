@@ -143,6 +143,51 @@ LinkedList.prototype.size = function () {
 
 LinkedList.prototype.switchPos = function (pos1, pos2) {
   // Tu código aca:
+  var node1 = this.head;
+  var node2 = this.head;
+  var prevNode1 = null;
+  var prevNode2 = null;
+
+  if (this.head === null) {
+    return false;
+  }
+
+  // cuento el tama�o de la lista
+
+  var nodeTemp = this.head;
+  var count = 0;
+  while (nodeTemp != null) {
+    count++;
+    nodeTemp = nodeTemp.next;
+  }
+
+  // chequeo que las posiciones pasadas sean menores que el tama�o de la lista
+  if (count < pos1 || count < pos2) return false;
+
+  // chequeo si el numero de posicion es negativo.
+  if (pos1 < 0 || pos2 < 0) return false;
+
+  for (let i = 1; i <= pos1; i++) {
+    prevNode1 = node1;
+    node1 = node1.next;
+  }
+
+  for (let i = 1; i <= pos2; i++) {
+    prevNode2 = node2;
+    node2 = node2.next;
+  }
+
+  if (prevNode1 != null) prevNode1.next = node2;
+  else this.head = node2;
+
+  if (prevNode2 != null) prevNode2.next = node1;
+  else this.head = node1;
+
+  // intercambio nodo1 y nodo2
+  var nodeTemp = node1.next;
+  node1.next = node2.next;
+  node2.next = nodeTemp;
+  return true;
 };
 
 // EJERCICIO 5
