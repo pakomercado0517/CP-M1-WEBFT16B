@@ -304,6 +304,8 @@ BinarySearchTree.prototype.height = function () {
 
 var binarySearch = function (array, target) {
   // Tu código aca:
+  if(array.indexOf(target)) return array.indexOf(target)
+  return -1
 };
 
 // EJERCICIO 9
