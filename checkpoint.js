@@ -304,8 +304,8 @@ BinarySearchTree.prototype.height = function () {
 
 var binarySearch = function (array, target) {
   // Tu código aca:
-  if(array.indexOf(target)) return array.indexOf(target)
-  return -1
+  if (array.indexOf(target)) return array.indexOf(target);
+  return -1;
 };
 
 // EJERCICIO 9
@@ -333,6 +333,20 @@ var binarySearch = function (array, target) {
 
 var specialSort = function (array, orderFunction) {
   // Tu código aca:
+  var change = true;
+
+  while (change) {
+    change = false;
+    for (let i = 0; i < array.length - 1; i++) {
+      if (orderFunction(array[i], array[i + 1]) === -1) {
+        var res = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = res;
+        change = true;
+      }
+    }
+  }
+  return array;
 };
 
 // ----- Closures -----
