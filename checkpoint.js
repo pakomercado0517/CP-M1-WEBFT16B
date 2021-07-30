@@ -84,7 +84,6 @@ function secuenciaHenry(obj, n) {
   for (const prop in obj) {
     if (!isNaN(prop)) param1++;
   }
-  
 
   if (Object.keys(obj)) param2 += Object.keys(obj).length;
 
@@ -116,14 +115,15 @@ function secuenciaHenry(obj, n) {
 
 LinkedList.prototype.size = function () {
   // Tu código aca:
-  // var count=0
+  var count = 0;
 
-  // var nodoActual= this.head
+  var nodoActual = this.head;
 
-  // while(nodoActual) {
-  //   nodoActual= nodoActual.next
-  //   counter++
-  // }
+  while (nodoActual) {
+    nodoActual = nodoActual.next;
+    count++;
+  }
+  return count;
 };
 
 // EJERCICIO 4
