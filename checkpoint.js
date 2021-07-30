@@ -281,6 +281,11 @@ var cardGame = function (playerOneCards, playerTwoCards) {
 
 BinarySearchTree.prototype.height = function () {
   // Tu código aca:
+  if (this.value === null) return 0;
+  if (this.left === null && this.right === null) return 1;
+  if (this.left === null) return 1 + this.right.height();
+  if (this.right === null) return 1 + this.left.height();
+  return 1 + Math.max(this.left.height(), this.right.height());
 };
 
 // ---------------
