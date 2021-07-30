@@ -39,7 +39,13 @@ const {
 
 var isAncestor = function(genealogyTree, ancestor, descendant){
   // Tu código aca:
-
+  if(genealogyTree[ancestor].length <= 0)return false
+  for (let i = 0; i < genealogyTree[ancestor].length; i++) {
+    var auxiliar= genealogyTree[ancestor][i]
+    if(auxiiliar === descendant) return true
+    if(genealogyTree[auxiliar].length > 0) return isAncestor(genealogyTree, aux, descendant)
+  }
+  return false
 }
 
 
